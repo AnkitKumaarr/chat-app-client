@@ -40,6 +40,8 @@ function App() {
     <ThemeProvider theme={{ mode, setMode }}>
       <ChatContextProvider>
         <Navbar />
+        <h4>Ankit --- {process.env.VITE_SERVER_URL}</h4>
+        <h4>Prashant {process.env.VITE_AVATAR_KEY}</h4>
         <Routes>
           <Route path="/" element={user ? <Home /> : <Navigate to="/login" replace={true} />} />
           <Route path="/open-room" element={user ? <Room /> : <Navigate to="/login" replace={true} />} />
