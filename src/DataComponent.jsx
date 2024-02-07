@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 
 function DataComponent() {
-  const [data, setData] = useState('');
+  const [data, setData] = useState();
 
   const fetchData = async () => {
     try {
       const response = await fetch('https://chatapp-lb5g.onrender.com/data');
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
       const jsonData = await response.json();
       setData(jsonData);
     } catch (error) {
