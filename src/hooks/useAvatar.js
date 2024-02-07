@@ -29,6 +29,8 @@ export const useAvatar = () => {
     }
   }, []);
 
+
+
   return { error, isLoading, fetchAvatar };
 };
 
