@@ -7,6 +7,7 @@ import { useAuthContext } from '../context/AuthContext';
 import { useChatContext } from '../context/ChatContext';
 import { useSocketContext } from '../context/SocketContext';
 import { socketEmitEvent } from '../socket/emit';
+import { Button } from './Button';
 
 function Navbar() {
   const { mode, setMode } = useContext(ThemeContext);
