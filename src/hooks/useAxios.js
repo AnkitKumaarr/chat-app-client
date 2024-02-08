@@ -56,7 +56,6 @@ export const useAxios = () => {
         if (token?.accessToken) {
           config.headers = {
             Authorization: `Bearer ${token.accessToken}`
-            
           };
         }
         const result = await instance.request(config);

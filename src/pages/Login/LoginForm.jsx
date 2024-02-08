@@ -30,26 +30,48 @@ function LoginForm() {
     }
   }, [error]);
 
-  const handleSubmit = (e) => {
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (!formData.username || !formData.password) {
+  //     warningToast('All fields are required!');
+  //     return;
+  //   }
+  //   postLogin(
+  //     {
+  //       method: 'POST',
+  //       url: authAPI.login,
+  //       data: { ...formData }
+  //     },
+  //     (data) => {
+  //       const { accessToken, ...other } = data.data;
+  //       setUser({ ...other });
+  //       setToken({ accessToken });
+  //       socketConnect();
+  //     }
+  //   );
+  // };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    
     if (!formData.username || !formData.password) {
-      warningToast('All fields are required!');
-      return;
+        warningToast('All fields are required!');
+        return;
     }
-    postLogin(
-      {
-        method: 'POST',
-        url: authAPI.login,
-        data: { ...formData }
-      },
-      (data) => {
-        const { accessToken, ...other } = data.data;
+    
+    try {
+        const response = await axios.post(`${process.env.VITE_SERVER_URL}/api/auth/login`, formData);
+        const data = response.data;
+        
+        const { accessToken, ...other } = data;
         setUser({ ...other });
         setToken({ accessToken });
         socketConnect();
-      }
-    );
-  };
+    } catch (error) {
+        // Handle error
+        console.error('Error occurred:', error);
+    }
+};
 
   const handleInputChange = (e) => {
     setFormData((prev) => ({
