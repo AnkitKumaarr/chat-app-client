@@ -9,6 +9,7 @@ import { authAPI } from '../../api';
 import { useAuthContext } from '../../context/AuthContext';
 import { errorToast, warningToast } from '../../utils/toastify';
 import { useSocketContext } from '../../context/SocketContext';
+import axios from 'axios';
 
 function LoginForm() {
   const [formData, setFormData] = useState({

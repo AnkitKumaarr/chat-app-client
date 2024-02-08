@@ -10,6 +10,7 @@ import { errorToast, warningToast } from '../../utils/toastify';
 import { authAPI } from '../../api';
 import { useAuthContext } from '../../context/AuthContext';
 import { useAvatar } from '../../hooks/useAvatar';
+import axios from 'axios';
 
 function SignUpForm() {
   const [formData, setFormData] = useState({
