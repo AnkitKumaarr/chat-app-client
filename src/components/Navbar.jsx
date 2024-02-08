@@ -44,7 +44,7 @@ function Navbar() {
       <Link to="/">
         <NavLogo>
           <NavImage src="/talking.png" alt="brand=logo" />
-          <NavBrand>Chatty</NavBrand>
+          <NavBrand>Chat App</NavBrand>
           {show && onlineUsers && <NavCount> Number of people online: {onlineUsers.length || 0}</NavCount>}
         </NavLogo>
       </Link>
