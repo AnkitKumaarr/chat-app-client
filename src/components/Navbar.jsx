@@ -7,7 +7,7 @@ import { useAuthContext } from '../context/AuthContext';
 import { useChatContext } from '../context/ChatContext';
 import { useSocketContext } from '../context/SocketContext';
 import { socketEmitEvent } from '../socket/emit';
-import { FaPowerOff } from 'react-icons/fa';
+import { MdLogout } from 'react-icons/md';
 
 function Navbar() {
   const { mode, setMode } = useContext(ThemeContext);
@@ -69,7 +69,7 @@ function Navbar() {
               </Link>
             </NavIcon>
             <NavIcon>
-              <FaPowerOff onClick={handleLogout} />
+              <MdLogout onClick={handleLogout} />
             </NavIcon>
           </>
         ) : null}
