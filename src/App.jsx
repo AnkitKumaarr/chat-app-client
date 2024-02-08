@@ -14,7 +14,6 @@ import { useAuthContext } from './context/AuthContext';
 import { ToastContainer } from 'react-toastify';
 import { socketEmitEvent } from './socket/emit';
 import { useLocalStorage } from './hooks/useLocalStorage';
-import DataComponent from './DataComponent';
 
 function App() {
   const { user } = useAuthContext();
@@ -41,9 +40,6 @@ function App() {
     <ThemeProvider theme={{ mode, setMode }}>
       <ChatContextProvider>
         <Navbar />
-        <h4>Ankit --- {process.env.VITE_SERVER_URL}</h4>
-        <h4>Prashant {process.env.VITE_AVATAR_KEY}</h4>
-        <DataComponent/>
         <Routes>
           <Route path="/" element={user ? <Home /> : <Navigate to="/login" replace={true} />} />
           <Route path="/open-room" element={user ? <Room /> : <Navigate to="/login" replace={true} />} />

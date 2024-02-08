@@ -58,44 +58,27 @@ function SignUpForm() {
     return true;
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const isValid = submitValidator();
-  //   if (isValid) {
-  //     postRegister(
-  //       {
-  //         method: 'POST',
-  //         url: authAPI.register,
-  //         data: { ...formData }
-  //       },
-  //       (data) => {
-  //         const { accessToken, ...other } = data.data;
-  //         setUser({ ...other });
-
-  //         setToken({ accessToken });
-  //       }
-  //     );
-  //   }
-  // };
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const isValid = submitValidator();
-
     if (isValid) {
-      try {
-        const response = await axios.post(process.env.VITE_SERVER_URL + authAPI.register, formData);
-        const data = response.data;
+      postRegister(
+        {
+          method: 'POST',
+          url: authAPI.register,
+          data: { ...formData }
+        },
+        (data) => {
+          const { accessToken, ...other } = data.data;
+          setUser({ ...other });
 
-        const { accessToken, ...other } = data;
-        setUser({ ...other });
-        setToken({ accessToken });
-      } catch (error) {
-        // Handle error
-        console.error('Error occurred:', error);
-      }
+          setToken({ accessToken });
+        }
+      );
     }
   };
+
+
 
   const handleInputChange = (e) => {
     setFormData((prev) => ({

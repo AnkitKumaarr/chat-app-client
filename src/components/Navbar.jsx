@@ -44,7 +44,7 @@ function Navbar() {
         <NavLogo>
           <NavImage src="/talking.png" alt="brand=logo" />
           <NavBrand>Chatty</NavBrand>
-          {show && onlineUsers && <NavCount> 上線人數：{onlineUsers.length || 0}</NavCount>}
+          {show && onlineUsers && <NavCount> Number of people online: {onlineUsers.length || 0}</NavCount>}
         </NavLogo>
       </Link>
       {user ? (
@@ -67,9 +67,10 @@ function Navbar() {
                 <MdGroupAdd />
               </Link>
             </NavIcon>
-            <NavIcon>
+            <Button onClick={handleLogout}> Logout</Button>
+            {/* <NavIcon>
               <HiOutlineArrowTopRightOnSquare onClick={handleLogout} />
-            </NavIcon>
+            </NavIcon> */}
           </>
         ) : null}
       </NavIcons>
